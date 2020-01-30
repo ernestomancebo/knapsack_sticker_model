@@ -9,9 +9,9 @@ def cardinal_sort(tubo, B: set):
     b_l = list(B)
     s = len(B)
     for i in range(1, s + 1):
-        separar(t_0, b_l[i])
+        (t_0, t1_prime) = separar(t_0, b_l[i])
         for j in range(0, i):
-            separar()
-            mezclar()
-        # T_i
+            (tj_dob, ) = separar()
+            tj = mezclar(, tj_dob)
+            # T_i
     return t_0

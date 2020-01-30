@@ -2,19 +2,36 @@ from random import randint
 
 
 def mezclar(tubo_1, tubo_2):
-    return
+    return tubo_1[:] + tubo_2[:]
 
 
 def separar(tubo, indice):
-    return
+    t_pos = tubo[:]
+    t_neg = tubo[:]
+
+    encender(t_pos, indice)
+    apagar(t_neg, indice)
+
+    return (t_pos, t_neg)
+
+
+def manipular_sticker(tubo: list, indice: int, val: int):
+    t_tmp = tubo[:]
+    for m_complex in t_tmp:
+        m_complex[indice] = val
+    return t_tmp
 
 
 def encender(tubo, indice):
-    return
+    return manipular_sticker(tubo, indice, 1)
+
+
+def apagar(tubo, indice):
+    return manipular_sticker(tubo, indice, 0)
 
 
 def leer(tubo):
-    return
+    return tubo
 
 
 def generar_conjuntos(p):
