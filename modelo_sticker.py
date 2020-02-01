@@ -5,12 +5,15 @@ def mezclar(tubo_1, tubo_2):
     return tubo_1[:] + tubo_2[:]
 
 
-def separar(tubo, indice):
-    t_pos = tubo[:]
-    t_neg = tubo[:]
+def separar(tubo, index):
+    t_pos = []
+    t_neg = []
 
-    encender(t_pos, indice)
-    apagar(t_neg, indice)
+    for m_complex in tubo:
+        if m_complex[index] == 1:
+            t_pos.append(m_complex)
+        else:
+            t_neg.append(m_complex)
 
     return (t_pos, t_neg)
 
@@ -40,7 +43,7 @@ def generar_conjuntos(p):
     A = [x for x in range(0, p + 1)]
 
     # Tamaño de B, aleatoria pero dentro del dominio de A
-    s = randint(1, p)
+    s = randint(1, p + 1)
     B = set()
     for _ in range(s):
         B.add(A[randint(0, p)])

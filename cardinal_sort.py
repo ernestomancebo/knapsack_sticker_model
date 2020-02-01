@@ -1,17 +1,18 @@
-from modelo_sticker import generar_conjuntos, separar, mezclar
-from random import randint
-
-(A, B, F) = generar_conjuntos(randint(0, 10))
+from modelo_sticker import generar_conjuntos, mezclar, separar
 
 
-def cardinal_sort(tubo, B: set):
-    t_0 = tubo[:]
-    b_l = list(B)
+def cardinal_sort(tubo, B: list):
     s = len(B)
+    tubo_salida = [list()] * (s + 1)
+    t_prime = tubo_salida[:]
+    tubo_salida[0] = tubo[:]
+
     for i in range(1, s + 1):
-        (t_0, t1_prime) = separar(t_0, b_l[i])
+        b_index = i - 1
+        (tubo_salida[0], t_prime[0]) = separar(tubo_salida[0], B[b_index])
         for j in range(0, i):
-            (tj_dob, ) = separar()
-            tj = mezclar(, tj_dob)
-            # T_i
-    return t_0
+            (t_prime[j+1], t_double) = separar(tubo_salida[j], B[b_index])
+            tubo_salida[j] = mezclar(t_prime[j], t_double)
+
+        tubo_salida[i] = t_prime[i]
+    return tubo_salida

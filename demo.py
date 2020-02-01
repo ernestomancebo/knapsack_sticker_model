@@ -1,7 +1,7 @@
-from random import randint
-from modelo_sticker import generar_conjuntos, encode_tube
 import pprint
-import json
+from random import randint
+
+from modelo_sticker import encode_tube, generar_conjuntos
 
 pp = pprint.PrettyPrinter(indent=4)
 (A, B, F) = generar_conjuntos(randint(1, 12))
