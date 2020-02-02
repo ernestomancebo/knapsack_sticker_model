@@ -77,3 +77,15 @@ def x_d(mem_complex: list, d: list):
     for i in d:
         mem_complex[i] = 1
     return mem_complex
+
+
+def weight(i: int):
+    if i == 0:
+        return 0
+    return i + weight(i - 1)
+
+
+def fill_weight(start: int, end: int, f=weight):
+    q_w = 0
+    for i in range(start, end+1):
+        q_w += weight(i)
